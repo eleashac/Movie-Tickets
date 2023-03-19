@@ -1,6 +1,6 @@
 """
-Movie theatre ticketing system - v2
-Get details of sale
+Movie theatre ticketing system - v3
+Calculate price
 Created by Eleasha Chan
 """
 
@@ -24,13 +24,25 @@ def sell_ticket():
                             "\t C for Child \n"
                             "\t S for Student \n"
                             "\t G if using a Gift Voucher \n"""
-                            ">> "). upper()
+                            ">> ").upper()
         ticket = ticket_type
         num_tickets = int(input(f"How many {ticket} tickets do you want: "))
 
-        print(f"You have ordered {num_tickets} {ticket} tickets!")
+        cost = get_price(ticket_type)
+
+        print(f"You have ordered {num_tickets} {ticket} tickets! \n"
+              f"Cost: ${cost:.2f} \n"
+              f"Total: ${cost * num_tickets:.2f}")
         ticket_wanted = input("Do you want to order another ticket? Y/N: "
                               "").upper()
+
+
+# Component 3 - calculate price
+def get_price(type_):
+    prices = [["A", 12.5], ["C", 7], ["S", 9], ["G", 0]]
+    for price in prices:
+        if price[0] == type_"":
+            return price[1]
 
 
 # Main routines
